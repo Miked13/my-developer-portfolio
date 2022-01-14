@@ -6,7 +6,7 @@
 </script>
 
 <div>
-	<img src={image[0].url} alt={name} />
+	<img src={url} alt={name} />
 	<a href={`/projects/${slug}`}>
 		<div>
 			<h2>{name}</h2>
