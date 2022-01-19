@@ -21,7 +21,7 @@ fragment ProjectDetails on Project{
     description
     tags
     demo
-    sourcecode
+    sourceCode
     image{
         url
     }
