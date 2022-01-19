@@ -5,15 +5,15 @@
 
 	export const load = async ({ params }) => {
 		const { slug } = params;
-		const variable = { slug };
+		const variables = { slug };
 		const { project } = await client.request(projectQuery, variables);
 
 		return {
 			props: {
-				project
-			}
-		};
-	};
+				project,
+			},
+		}
+	}
 </script>
 
 <script>
@@ -32,7 +32,7 @@
 
 <div class="mb-5 flex justify-between">
 	<div>
-		{#if projects.tags}
+		{#if project.tags}
 			{#each project.tags as tag}
 				<span class="badge badge-primary mr-2 hover:bg-primary-focus cursor-pointer">{tag}</span>
 			{/each}
