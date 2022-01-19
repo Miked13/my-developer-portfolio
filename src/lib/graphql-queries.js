@@ -13,16 +13,32 @@ export const authorsQuery = gql`
         }
     }`
 
+
+const PROJECT_FRAGMENT = gql`
+fragment ProjectDetails on Project{
+    name
+    slug
+    description
+    tags
+    demo
+    sourcecode
+    image{
+        url
+    }
+}`
+
 export const projectsQuery = gql`
-    query GetProjects {
-        projects{
-            name
-            slug
-            description
-            demo
-            sourceCode
-            image{
-                url
-            }
-        }
-    }`
+${PROJECT_FRAGMENT}
+query GetProjects{
+    projects{
+        ...ProjectDetails
+    }
+}`
+
+export const projectQuery = gql`
+${PROJECT_FRAGMENT}
+query GetProject($slug: String!) {
+    project(where: { slug: $slug }) {
+        ...ProjectDetails
+    }
+}`
