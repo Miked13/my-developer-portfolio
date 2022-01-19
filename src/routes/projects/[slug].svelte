@@ -4,9 +4,9 @@
 	import { marked } from 'marked';
 
 	export const load = async ({ params }) => {
-		const { slug } = params;
-		const variables = { slug };
-		const { project } = await client.request(projectQuery, variables);
+		const { slug } = params
+		const variables = { slug }
+		const { project } = await client.request(projectQuery, variables)
 
 		return {
 			props: {
