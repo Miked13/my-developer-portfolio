@@ -6,7 +6,7 @@
 	export const load = async ({ params }) => {
 		const { slug } = params
 		const variables = { slug }
-		const { project } = await client.request(projectQuery, variables)
+		const { post } = await client.request(postQuery, variables)
 
 		return {
 			props: {
@@ -17,7 +17,8 @@
 </script>
 
 <script>
-	export let post;
+	export let post
+    
     const { title, date, tags, content, coverImage } = post
 </script>
 
@@ -34,7 +35,7 @@
 </div>
 
 <p class="text-secondary text-xs tracking-widest font-semibold">
-    {new Date(date).toString()}
+    {new Date(date).toDateString()}
 </p>
 
 <div class="mb-5 flex justify-between">
